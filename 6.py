@@ -1,6 +1,6 @@
 import math
 import timeit
-import pandas as pd
+from pandas import DataFrame
 import matplotlib.pyplot as plt
 
 def rec_F(n):
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         t_rec = timeit.timeit(lambda: rec_F(n), number=10)
         t_it = timeit.timeit(lambda: iter_F(n), number=10)
         results.append((n, t_rec, t_it))
-    df = pd.DataFrame(results, columns=['n', 'Recursive Time (s)', 'Iterative Time (s)'])
+    df = DataFrame(results, columns=['n', 'Recursive Time (s)', 'Iterative Time (s)'])
     print(df.to_string(index=False))
 
     plt.figure(figsize=(8, 5))
