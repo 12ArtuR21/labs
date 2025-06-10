@@ -19,7 +19,7 @@ def first_part(K, N):
     backtrack(1, 0)
     end_time = time.time()
     for i in allbuket:
-        unique.append(list(set(i)))
+        unique.append(set(i))
     most_unique = max(unique, key=lambda b: len(set(b)))
     for i in allbuket:
         print(i)
