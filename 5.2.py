@@ -23,7 +23,7 @@ def first_part(K, N):
     most_unique = max(unique, key=lambda b: len(set(b)))
     for i in allbuket:
         print(i)
-    print('Уникальный букет: ', most_unique)
+    print('Уникальный букет: ', *most_unique)
     print(f"Время выполнения: {end_time - start_time:.5f} секунд")
 def second_part(K, N, max_same):
     print('\nУсложненная вторая часть:')
@@ -38,7 +38,7 @@ def second_part(K, N, max_same):
     end_time = time.time()
     for i in valid_bouquets:
         print(i)
-    print('Уникальный букет: ', most_unique)
+    print('Уникальный букет: ', *most_unique)
     print(f"Время выполнения: {end_time - start_time:.5f} секунд")
 N = int(input())
 K = int(input())
