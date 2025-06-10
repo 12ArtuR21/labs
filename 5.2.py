@@ -5,19 +5,22 @@ def first_part(K, N):
     print('Усложненная первая часть:')
     allbuket = []
     buket = []
+    unique = []
     def backtrack(start, length):
         if length > N:
             return
         if length >= 1:
             allbuket.append(buket.copy())
         for flower_type in range(start, K + 1):
-            if buket.count(flower_type) < 1:
+            if buket.count(flower_type) < 2:
                 buket.append(flower_type)
                 backtrack(flower_type, length + 1)
                 buket.pop()
     backtrack(1, 0)
     end_time = time.time()
-    most_unique = max(allbuket, key=lambda b: len(set(b)))
+    for i in allbuket:
+        unique.append(list(set(i)))
+    most_unique = max(unique, key=lambda b: len(set(b)))
     for i in allbuket:
         print(i)
     print('Уникальный букет: ', most_unique)
